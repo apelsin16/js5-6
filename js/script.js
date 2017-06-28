@@ -25,7 +25,7 @@
 var startTime;
 var deltaTime;
 
-var startBtn = document.getElementsByClassName('btn-success');
+var startBtn = document.getElementById('btn-success');
 
 var ms = document.getElementById('ms');
 var seconds = document.getElementById('seconds');
@@ -35,16 +35,27 @@ var isActive = false;
 
 
 
-function getTime (){
+var getTime = function(){
    startTime = Date.now();
-   setInterval(function(){
+   var interval = setInterval(function(){
    deltaTime = new Date(Date.now() - startTime);
+   html();
+ }, 1);
 
-  seconds.innerHTML = deltaTime.getSeconds();
-   //deltaTime.getMilliseconds();
+ };
 
-}, 1000);
-}
+var html = function(){
 
-startBtn[0].addEventListener("click", getTime, false);
+ ms.innerHTML = deltaTime.getMilliseconds();
+ seconds.innerHTML = deltaTime.getSeconds();
+ minutes.innerHTML = deltaTime.getMinutes();
+ hours.innerHTML = deltaTime.getUTCHours();
+
+};
+//var html = function () {
+  //getTime();
+ //}   ;
+
+
+startBtn.addEventListener("click", getTime, false);
 }());
