@@ -35,14 +35,14 @@ var isActive = false;
 
 
 
-var getTime = function(){
+startBtn.addEventListener('click',function getTime(){
    startTime = Date.now();
    var interval = setInterval(function(){
    deltaTime = new Date(Date.now() - startTime);
    html();
  }, 1);
 
- };
+ });
 
 var html = function(){
 
@@ -57,5 +57,4 @@ var html = function(){
  //}   ;
 
 
-startBtn.addEventListener("click", getTime, false);
 }());
